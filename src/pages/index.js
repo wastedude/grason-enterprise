@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 
 const products = [
@@ -25,6 +26,39 @@ const products = [
     bg: '#1a1025',
     name: 'Sports Jerseys',
     desc: 'Custom football, basketball and athletics jerseys for clubs, schools and corporate teams.',
+  },
+];
+
+const workGallery = [
+  {
+    image: '/WhatsApp Image 2026-05-05 at 10.57.56 AM.jpeg',
+    title: 'Custom School Uniforms',
+    category: 'Uniforms',
+  },
+  {
+    image: '/WhatsApp Image 2026-05-05 at 10.57.59 AM.jpeg',
+    title: 'Branded T-Shirts',
+    category: 'Corporate Wear',
+  },
+  {
+    image: '/WhatsApp Image 2026-05-05 at 10.57.59 AM (1).jpeg',
+    title: 'Event Merchandise',
+    category: 'Branding',
+  },
+  {
+    image: '/WhatsApp Image 2026-05-05 at 10.58.01 AM.jpeg',
+    title: 'Sports Team Jerseys',
+    category: 'Sports Wear',
+  },
+  {
+    image: '/WhatsApp Image 2026-05-05 at 10.58.02 AM.jpeg',
+    title: 'Polo Shirts Collection',
+    category: 'Corporate Wear',
+  },
+  {
+    image: '/WhatsApp Image 2026-05-05 at 10.59.57 AM.jpeg',
+    title: 'Custom Printing Work',
+    category: 'Printing',
   },
 ];
 
@@ -128,6 +162,7 @@ export default function Home() {
         <a href="#" className="nav-logo">GRAYSON <span>ENT.</span></a>
         <ul className="nav-links">
           <li><a href="#products">Products</a></li>
+          <li><a href="#work">Our Work</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#why">Why Us</a></li>
           <li><a href="#contact" className="nav-cta">Get a Quote</a></li>
@@ -139,6 +174,7 @@ export default function Home() {
 
       <div className={`mobile-nav ${menuOpen ? 'open' : ''}`}>
         <a href="#products" onClick={() => setMenuOpen(false)}>Products</a>
+        <a href="#work" onClick={() => setMenuOpen(false)}>Our Work</a>
         <a href="#services" onClick={() => setMenuOpen(false)}>Services</a>
         <a href="#why" onClick={() => setMenuOpen(false)}>Why Us</a>
         <a href="#contact" onClick={() => setMenuOpen(false)}>Get a Quote →</a>
@@ -197,6 +233,34 @@ export default function Home() {
               <div className="product-info">
                 <h3>{p.name}</h3>
                 <p>{p.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* OUR WORK */}
+      <section id="work">
+        <div className="reveal">
+          <p className="section-label">Portfolio</p>
+          <h2 className="section-title">OUR WORK</h2>
+          <p className="section-body">See some of our recent projects and custom work. From school uniforms to corporate branding — quality you can see.</p>
+        </div>
+        <div className="work-grid">
+          {workGallery.map((item, i) => (
+            <div className="work-item reveal" key={i} style={{ transitionDelay: `${i * 0.08}s` }}>
+              <div className="work-image">
+                <Image 
+                  src={item.image} 
+                  alt={item.title}
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+                <div className="work-overlay">
+                  <span className="work-category">{item.category}</span>
+                  <h3 className="work-title">{item.title}</h3>
+                </div>
               </div>
             </div>
           ))}
@@ -279,11 +343,11 @@ export default function Home() {
             </p>
             <div className="contact-detail">
               <div className="contact-detail-icon">📍</div>
-              <span>Nairobi, Kenya</span>
+              <span>Thika, Kenya</span>
             </div>
             <div className="contact-detail">
               <div className="contact-detail-icon">📞</div>
-              <span>+254 700 000 000</span>
+              <span>0790070674 / 0702826288</span>
             </div>
             <div className="contact-detail">
               <div className="contact-detail-icon">✉️</div>

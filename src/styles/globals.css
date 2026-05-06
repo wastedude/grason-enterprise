@@ -383,11 +383,16 @@ section {
   overflow: hidden;
 }
 
+.product-img img {
+  object-fit: cover;
+}
+
 .product-img::after {
   content: '';
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg, rgba(201,168,76,0.1), transparent);
+  z-index: 1;
 }
 
 .product-info {
@@ -404,6 +409,74 @@ section {
   font-size: 0.85rem;
   color: var(--gray-light);
   line-height: 1.6;
+}
+
+/* OUR WORK */
+#work {
+  background: var(--white);
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.work-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.work-item:hover {
+  transform: translateY(-8px);
+}
+
+.work-image {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+  background: var(--navy);
+}
+
+.work-image img {
+  transition: transform 0.5s ease;
+}
+
+.work-item:hover .work-image img {
+  transform: scale(1.1);
+}
+
+.work-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  z-index: 2;
+}
+
+.work-category {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.work-title {
+  font-size: 1.5rem;
+  color: var(--white);
+  margin: 0;
+  line-height: 1.2;
 }
 
 /* SERVICES */
